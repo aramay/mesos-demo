@@ -1,0 +1,26 @@
+
+
+ body {
+    overflow-x: hidden;
+ }
+
+.container-left{
+    width: 40%;
+    float: left;
+}
+
+.container-right{
+    width: 60%;
+    float: right;
+}
+
+#server-canvas .col-md-3{
+    /*width: 40%;*/
+    min-height: 100px;
+    background-color:yellow;
+    margin: 10px;
+}
+
+/*#server-canvas{
+    width: 60%;
+}*/
