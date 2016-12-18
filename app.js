@@ -1,9 +1,15 @@
-// A $( document ).ready() block.
+
 $( document ).ready(function() {
     console.log( "ready!" );
 
-    //cluster domain collection
-    var mesosDomain = [];
+    //cluster domain collection, plus app running in that cluster
+    var mesosDomain = [
+        {
+            cluster: 1,
+            apps: []
+        }
+    ];
+
 
     function addServer(event) {
 
@@ -16,12 +22,18 @@ $( document ).ready(function() {
 			$content.append(contents);
 		});
 
-        mesosDomain.push();
+        mesosDomain.push({
+                    cluster: mesosDomain.length + 1, app:[]
+                });
+
+        console.log(mesosDomain);
     }
 
     function destroyServer(event) {
         event.preventDefault();
         console.log("destroy clicked");
+
+        
 
     }
 
