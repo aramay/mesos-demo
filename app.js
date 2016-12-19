@@ -15,7 +15,7 @@ $( document ).ready(function() {
     function addServer(event) {
 
         $.ajax({
-            url: "mesos-demo/server_instance/_server_instance_temp.html" ,
+            url: "server_instance/_server_instance_temp.html" ,
 		     dataType: "text",
 		async: false
          })
