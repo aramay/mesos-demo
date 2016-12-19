@@ -9,13 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Mesos Demo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,6 +23,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <script src="app.js"></script>
 
 </head>
 
@@ -36,22 +41,62 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        Add Server
+                        <a href="#" id="add-server">
+                            Add Server
+                        </a>
                     </div>
 
-                    <div class="col-md-4">
-                        Destroy
+                    <div class="col-md-4" id="destroy">
+                        <a href="">
+                            Destroy
+                        </a>
                     </div>
 
                 </div>
                 <!-- end server-controll container     -->
 
                 <div id="app-controll">
-                    <div class="row">
-                        <div class="col-md-4">
+                    Available Apps
+                    <div class="row app-controll">
+
+                        <div class="col-md-8">
                             Hadoop
-                            <button>Add</button>
-                            <button>Remove</button>
+
+                            <button type="button" id="add-app-hadoop" class="btn btn-primary">Add App</button>
+
+                            <button type="button" id="remove-app-hadoop" class="btn btn-danger">Remove App</button>
+                        </div>
+
+                        <div class="col-md-8">
+                            Rails
+
+                            <button type="button" id="add-app-rails" class="btn btn-primary add-app">Add App</button>
+
+                            <button type="button" id="remove-app-hadoop" class="btn btn-danger">Remove App</button>
+                        </div>
+
+                        <div class="col-md-8">
+                            Chronos
+
+                            <button type="button" id="add-app-chronos" class="btn btn-primary add-app">Add App</button>
+
+                            <button type="button" id="remove-app-hadoop" class="btn btn-danger">Remove App</button>
+                        </div>
+
+                        <div class="col-md-8">
+                            Storm
+
+                            <button type="button" id="add-app-storm" class="btn btn-primary add-app">Add App</button>
+
+                            <button type="button" id="remove-app-storm" class="btn btn-danger">Remove App</button>
+                        </div>
+
+                        <div class="col-md-8">
+                            Spark
+
+                            <button type="button" id="add-app-spark" class="btn btn-primary add-app">Add App</button>
+
+                            <button type="button" id="remove-app-spark" class="btn btn-danger">Remove App</button>
                         </div>
                     </div>
                 </div>
@@ -64,27 +109,27 @@
             Server Canvas
 
             <div id="server-canvas">
-                <div class="row">
+                <div id="server-canvas-content" class="row">
 
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                         Server Instances
-                    </div>
-                    <div class="col-md-3">
-                        Server Instances
-                    </div>
-                    <div class="col-md-3">
-                        Server Instances
-                    </div>
+                    </div> -->
+
 
                 </div>
-                <!-- end server-controll container     -->
+
             </div>
-            <!-- end server-controll -->
+            <!-- end server-canvas container     -->
 
         </div>
-            <!-- end server canvas -->
-        <!-- end container -->
+            <!-- end server canvas content-->
     </div>
+    <!-- end container -->
+
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 
 </body>
