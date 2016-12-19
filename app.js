@@ -16,7 +16,8 @@ $( document ).ready(function() {
 
         $.ajax({
             url: "/server_instance/_server_instance_temp.html" ,
-		     dataType: "text"
+		     dataType: "text",
+		async: false
          })
 		.then(function(contents){
 			$content.append(contents);
