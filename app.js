@@ -14,9 +14,10 @@ $( document ).ready(function() {
 
     function addServer(event) {
 
-        $.ajax(url: "server_instance/_server_instance_temp.html" ,
-		      {dataType: "text"}
-        )
+        $.ajax({
+            url: "/server_instance/_server_instance_temp.html" ,
+		     dataType: "text"
+         })
 		.then(function(contents){
 			$content.append(contents);
 		});
