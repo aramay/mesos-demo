@@ -4,17 +4,15 @@ $( document ).ready(function() {
 
     //cluster domain collection, plus app running in that cluster
     var mesosDomain = [
-        {
-            cluster: 0,
-            apps: []
-        }
+        // {
+        //     cluster: 0,
+        //     apps: []
+        // }
     ];
 
     var ID = mesosDomain.length;
 
     function addServer(event) {
-
-        console.log(event);
 
         $.ajax("server_instance/_server_instance_temp.html" ,
 		      {dataType: "text"}
@@ -24,7 +22,7 @@ $( document ).ready(function() {
 		});
 
         mesosDomain.push({
-                    cluster: mesosDomain.length + 1, app:[]
+                    cluster: mesosDomain.length + 1, apps:[]
                 });
 
         console.log(mesosDomain);
@@ -35,15 +33,53 @@ $( document ).ready(function() {
 
         var $removeCluster = $("#server-canvas-content").children().last();
 
+        var removeClusterLocation = $("#server-canvas-content").children().length - 1;
+
         if ($("#server-canvas-content").children().length === 0) {
             alert("No Server Instance Running");
-        }else {
-            $removeCluster.remove();
         }
 
         //When a server is destroyed, each app running on it should be restarted elsewhere in the cluster following the algorithm above. If there is no capacity for the apps, they should be killed.
+        else {
+
+            if (mesosDomain[removeClusterLocation].apps.length > 0) {
+
+                // updateClusterApps(removeClusterLocation);
+                updateClusterApps(mesosDomain[removeClusterLocation].apps.length);
+            }
+            $removeCluster.remove();
+        }
+
 
     }//end destroyServer function
+
+    function updateClusterApps(numOfApps) {
+
+        console.log("numOfApps ", numOfApps);
+
+        for(var i=0; i<numOfApps; i++){
+
+            if (mesosDomain[i].apps.length === 0) {
+
+                mesosDomain[i].apps.push(i);
+                console.log("added app");
+            }
+            //2. If all servers are running at least 1 app, the new app should be started on the first server running only 1 app.
+            else if (mesosDomain[i].apps.length < 2) {
+                mesosDomain[i].apps.push(i);
+                console.log("added where there is 1 app");
+            }
+            //3. If all servers are running two apps, the app should not be started.
+            else {
+                alert("Cluster capacity full");
+
+                return;
+
+            }
+        }
+
+    }
+
 
     function addApp(event) {
 
@@ -53,6 +89,12 @@ $( document ).ready(function() {
 
         console.log("add app clicked");
         console.log($target);
+console.log(mesosDomain);
+        if ($("#server-canvas-content").children().length === 0)  {
+            alert("No CLuster present to add-app");
+
+            return ;
+        }
 
         //1. Run on the first server running 0 apps.
         for(var cluster in mesosDomain){
@@ -61,22 +103,25 @@ $( document ).ready(function() {
 
                 mesosDomain[cluster].apps.push($target);
                 console.log("added app");
-
-
-            }else {
+            }
+            //2. If all servers are running at least 1 app, the new app should be started on the first server running only 1 app.
+            else if (mesosDomain[cluster].apps.length < 2) {
+                mesosDomain[cluster].apps.push($target);
+                console.log("added where there is 1 app");
+            }
+            //3. If all servers are running two apps, the app should not be started.
+            else {
                 alert("Cluster capacity full");
+
+                return;
+
             }
 
+            console.log(mesosDomain);
         }
-        //2. If all servers are running at least 1 app, the new app should be started on the first server running only 1 app.
-
-        //3. If all servers are running two apps, the app should not be started.
-    }
-
-    function updateClusterInfo() {
-
 
     }
+
 
     var $content = $("#server-canvas-content");
 
