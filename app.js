@@ -14,14 +14,7 @@ $( document ).ready(function() {
 
     function addServer(event) {
 
-        $.ajax({
-            url: "server_instance/_server_instance_temp.html" ,
-		     dataType: "text",
-		async: false
-         })
-		.then(function(contents){
-			$content.append(contents);
-		});
+        $("#server-canvas-content").append("<div class='col-md-3'>Server Instances</div>");
 
         mesosDomain.push({
                     cluster: mesosDomain.length + 1, apps:[]
@@ -45,11 +38,13 @@ $( document ).ready(function() {
         else {
 
             if (mesosDomain[removeClusterLocation].apps.length > 0) {
+            // if (mesosDomain[removeClusterLocation].apps === undefined) {
 
                 // updateClusterApps(removeClusterLocation);
                 updateClusterApps(mesosDomain[removeClusterLocation].apps.length);
             }
             $removeCluster.remove();
+            mesosDomain.pop();
         }
 
 
