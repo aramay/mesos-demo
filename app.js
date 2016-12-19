@@ -31,9 +31,26 @@ $( document ).ready(function() {
 
     function destroyServer(event) {
         event.preventDefault();
-        console.log("destroy clicked");
+        // console.log("destroy clicked");
 
-        
+        var target = event.target
+
+        var $removeCluster = $("#server-canvas-content").children().last();
+
+        var target = mesosDomain.length;
+
+        $removeCluster.remove();
+        // for(var cluster in mesosDomain){
+        //
+        //     console.log(cluster);
+        //     console.log(mesosDomain[cluster]);
+        //
+        //     if (mesosDomain[cluster].apps.length === 0) {
+        //
+        //         $removeCluster.remove();
+        //     }
+        // }
+
 
     }
 
