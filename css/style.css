@@ -1,0 +1,49 @@
+
+
+ body {
+    overflow-x: hidden;
+ }
+
+.container-left{
+    width: 40%;
+    float: left;
+    height: 100%;
+}
+
+.container-right{
+    width: 55%;
+    float: right;
+}
+
+#server-canvas .col-md-3{
+    /*width: 40%;*/
+    min-height: 100px;
+    background-color:#adaaaa;
+    margin: 10px;
+}
+
+.row{
+    /*min-height: 100%;*/
+    /*margin: 100px;*/
+
+}
+
+#server-controll .row {
+    border-color: aliceblue;
+    border-style: groove;
+
+}
+
+#server-canvas{
+    border-color: aliceblue;
+    border-style: groove;
+}
+
+#server-controll .row .col-md-4{
+    margin: 100px 0px;
+}
+
+div .row .app-controll{
+    margin: 100px 0px;
+    line-height: normal;
+}
