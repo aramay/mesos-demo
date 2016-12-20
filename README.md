@@ -7,9 +7,15 @@
   To manipulate DOM elements.
   To provide cross browser support.
 
-### DEMO
+###GIT HUB REPO
+  [REPO](https://github.com/aramay/mesos-demo)
 
-[Mesos-Demo](https://aramay.github.io/mesos-demo/#)
+  source code in `app.js`
+  html content in `inddex.html`
+
+### DEMO
+  Click the link below.
+  [Mesos-Demo](https://aramay.github.io/mesos-demo/#)
 
 
 ### EXTRA CREDIT
