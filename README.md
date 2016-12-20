@@ -14,7 +14,7 @@
   * html content in `inddex.html`
 
 ### DEMO
-  Click the link below.
+  * Click the link below.
   [Mesos-Demo](https://aramay.github.io/mesos-demo/#)
 
 
